@@ -20,11 +20,22 @@ export default{
           console.log(response.data.results)
           store.filmList = response.data.results
         })
-        
         .catch(err =>{
             console.log(err)
         })
     },
+    requestNewFilm(){
+        let fullApi = store.baseUrl + store.apiKey + store.addNameFilm + store.newFilmSearch
+        axios.get(fullApi)
+        .then(function(response){
+            console.log(store.baseUrl + store.apiKey + store.addNameFilm + store.newFilmSearch)
+            store.filmList = response.data.results
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    },
+
   },  
   created(){
     this.requestFilms()
@@ -33,7 +44,7 @@ export default{
 </script>
 
 <template>
-  <AppHeaderSearch />
+  <AppHeaderSearch @prova="requestNewFilm"/>
   <main>
     <AppWrapCard  />
   </main>

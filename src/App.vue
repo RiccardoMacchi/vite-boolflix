@@ -1,10 +1,12 @@
 <script>
+import AppHeaderSearch from './components/AppHeaderSearch.vue';
 import AppWrapCard from './components/AppWrapCard.vue'
 import { store } from './store';
 import axios from 'axios';
 export default{
   components:{
     AppWrapCard,
+    AppHeaderSearch
   },
   data(){
     return{
@@ -22,8 +24,8 @@ export default{
         .catch(err =>{
             console.log(err)
         })
-    }
-  },
+    },
+  },  
   created(){
     this.requestFilms()
   }
@@ -31,8 +33,10 @@ export default{
 </script>
 
 <template>
-
-  <AppWrapCard  />
+  <AppHeaderSearch />
+  <main>
+    <AppWrapCard  />
+  </main>
 </template>
 
 <style lang="scss">

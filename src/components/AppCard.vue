@@ -10,7 +10,7 @@ export default{
     },
     methods:{
         flag(){
-        
+            
         }
     }
 }
@@ -18,7 +18,7 @@ export default{
 
 <template>
     <div v-for="film in store.filmList">
-        <img :src="film.poster_path" alt="">
+        <img :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="">
         <h2>{{film.title}}</h2>
         <h3>{{film.original_title}}</h3>
         <h3>{{film.original_language}}</h3>

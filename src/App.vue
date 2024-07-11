@@ -17,8 +17,8 @@ export default{
     requestFilms(){
       axios.get(store.urlFilmList)
         .then(function(response){
-          console.log(response.data.results)
           store.filmList = response.data.results
+          console.log("store in axios",store.filmList)
         })
         .catch(err =>{
             console.log(err)
@@ -30,14 +30,14 @@ export default{
         .then(function(response){
             console.log(store.baseUrl + store.apiKey + store.addNameFilm + store.newFilmSearch)
             store.filmList = response.data.results
-            console.log(store.filmList)
+            console.log("richeista",store.filmList)
         })
         .catch(err =>{
             console.log(err)
         })
     },
+  },
 
-  },  
   created(){
     this.requestFilms()
   }

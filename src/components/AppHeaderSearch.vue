@@ -7,7 +7,7 @@ export default {
     emits: ['newSearch'],
     data(){
         return{
-            store
+            store,
         }
     },
 }

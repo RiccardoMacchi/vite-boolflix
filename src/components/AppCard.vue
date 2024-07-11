@@ -20,6 +20,15 @@ export default{
         <span v-else>{{film.original_language}}</span>
         <h4>{{film.vote_average}}</h4>
     </div>
+<!-- SERIE TV -->
+    <div v-for="(serie, i) in store.serieList" :key="i">
+        <img :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" :alt="serie.name">
+        <h2>{{serie.name}}</h2>
+        <h3>{{serie.original_name}}</h3>
+        <img v-if="serie.original_language === 'en' || serie.original_language === 'fr' || serie.original_language === 'es' || serie.original_language === 'it' || serie.original_language === 'ko' || serie.original_language === 'de' " :src="'../src/assets/' + serie.original_language + '.png'" :alt="serie.original_language" id="flagimg">
+        <span v-else>{{serie.original_language}}</span>
+        <h4>{{serie.vote_average}}</h4>
+    </div>
 </template>
 
 <style>

@@ -25,12 +25,21 @@ export default{
         })
     },
     requestNewFilm(){
-        let fullApi = store.baseUrl + store.apiKey + store.addNameFilm + store.newFilmSearch
-        axios.get(fullApi)
+        let fullApiM = store.baseUrl + store.movieUrl + store.apiKey + store.addName + store.newFilmSearch
+        axios.get(fullApiM)
         .then(function(response){
-            console.log(store.baseUrl + store.apiKey + store.addNameFilm + store.newFilmSearch)
+            console.log(store.baseUrl + store.apiKey + store.addName + store.newFilmSearch)
             store.filmList = response.data.results
-            console.log("richeista",store.filmList)
+            console.log("richeista film",store.filmList)
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+        let fullApiS = store.baseUrl + store.serieUrl + store.apiKey + store.addName + store.newFilmSearch
+        axios.get(fullApiS)
+        .then(function(response){
+            store.serieList = response.data.results
+            console.log("richeista serie",store.serieList)
         })
         .catch(err =>{
             console.log(err)

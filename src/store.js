@@ -10,6 +10,7 @@ export const store = reactive({
     addName: "&query=",
     newFilmSearch: "",
     urlFilmList: "https://api.themoviedb.org/3/genre/28/movies?api_key=00de424db6d0d5359e33a658efbcb0df&language=it&include_all_movies=false",
+    urlSerieList: "https://api.themoviedb.org/3/tv/popular?api_key=00de424db6d0d5359e33a658efbcb0df&language=it&page=1",
     flags: ["de", "en", "es", "fr", "it", "ja", "ko"]
 });
 

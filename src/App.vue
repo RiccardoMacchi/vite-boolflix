@@ -27,6 +27,14 @@ export default{
         .catch(err =>{
             console.log(err)
         })
+        axios.get(store.urlSerieList)
+        .then(function(response){
+          store.serieList = response.data.results
+          console.log("store in axios",store.serieList)
+        })
+        .catch(err =>{
+            console.log(err)
+        })
     },
     requestNewFilm(){
         let fullApiM = store.baseUrl + store.movieUrl + store.apiKey + store.addName + store.newFilmSearch
@@ -66,5 +74,10 @@ export default{
 
 <style lang="scss">
 @use "./styles/general.scss" as*;
+@use "./styles/partials/variables" as*;
+
+main{
+  background-color: $bgcolor;
+}
 
 </style>

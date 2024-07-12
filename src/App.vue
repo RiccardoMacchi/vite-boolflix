@@ -1,4 +1,8 @@
 <script>
+// Import fontawesome
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+
 import AppHeaderSearch from './components/AppHeaderSearch.vue';
 import AppWrapCard from './components/AppWrapCard.vue'
 import { store } from './store';

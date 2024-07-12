@@ -14,9 +14,10 @@ export default {
 </script>
 
 <template>
-    <input type="text" v-model="store.newFilmSearch" > 
-    <button @click="$emit('newSearch')">Search</button>
+    <div>
+        <input type="text" v-model="store.newFilmSearch" @keyup.enter="$emit('newSearch')" >
+        <button >Search</button>
+    </div>
 </template>
-
 <style>
 </style>

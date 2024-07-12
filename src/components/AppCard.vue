@@ -24,7 +24,7 @@ export default{
 <!-- FILM -->
     <h2>FILMS</h2>
     <div class="container">
-        <font-awesome-icon :icon="['fas', 'star']" />
+        <!-- <font-awesome-icon :icon="['fas', 'star']" /> -->
         <span>{{ console.log("medodo in span")}}{{ consoleMeto() }}</span>
         <span>{{ console.log("span",store.filmList) }}</span>
         <div v-for="(film, i) in store.filmList" :key="i">
@@ -34,7 +34,10 @@ export default{
             <img v-if="store.flags.includes(film.original_language)" :src="'../src/assets/' + film.original_language + '.png'" :alt="film.original_language" id="flagimg">
             <span v-else>{{film.original_language}}</span>
             <h4>{{ Math.floor(film.vote_average / 2) }}</h4>
-            
+            <div v-for="i in 5" >
+                <span v-if="i <= Math.floor(film.vote_average / 2)">{{ i }}</span>
+                <span v-else>X</span>
+            </div>
             <!-- <span>{{ consoleMeto() }}</span> -->
         </div>
     </div>

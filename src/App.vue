@@ -57,8 +57,14 @@ export default{
             console.log(err)
         })
     },
+    prefTvFilm(){
+        store.displayPref = !store.displayPref
+        console.log(store.prefList);
+    },
+    home(){
+        store.displayPref = false
+    },
   },
-
   created(){
     this.requestFilms()
   }
@@ -66,7 +72,7 @@ export default{
 </script>
 
 <template>
-  <AppHeaderSearch @newSearch="requestNewFilm"/>
+  <AppHeaderSearch @homePage="home" @displayPref="prefTvFilm" @newSearch="requestNewFilm"/>
   <main>
     <AppWrapCard  />
   </main>

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default {
     name: "AppHeaderSearch",
-    emits: ['newSearch'],
+    emits: ['newSearch','displayPref'],
     data(){
         return{
             store,
@@ -16,8 +16,9 @@ export default {
 <template>
     <header>
         <div class="container">
-            <h1>BOOLFLIX</h1>
+            <h1 @click="$emit('homePage')">BOOLFLIX</h1>
             <input type="text" v-model="store.newFilmSearch" placeholder="Cerca qui tra milioni di serie e film" @keyup="$emit('newSearch')" >
+            <button @click="$emit('displayPref')">Preferiti</button>
         </div>
     </header>
 </template>

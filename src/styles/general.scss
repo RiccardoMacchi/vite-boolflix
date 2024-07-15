@@ -34,8 +34,25 @@ a {
     color: red;
 }
 
+span:hover {
+    cursor: pointer;
+}
+
 img {
     max-width: 100%;
+}
+
+ul {
+    text-align: right;
+    list-style: none;
+
+    li {
+        display: inline;
+    }
+
+    li:last-child {
+        padding-left: 50px;
+    }
 }
 
 /* MODIFICA TUTTE LE BARRE DI SCROLL */
@@ -52,5 +69,5 @@ img {
 /* Barra di scrollo */
 *::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #ffff;
+    background-color: #2e2d2d;
 }

@@ -14,6 +14,8 @@ export const store = reactive({
     flags: ["de", "en", "es", "fr", "it", "ja", "ko"],
     prefList: [],
     displayPref: false,
+    displayFilm: true,
+    displaySerie: true,
 });
 
 console.log(store.urlFilmList)

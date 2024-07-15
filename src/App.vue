@@ -57,13 +57,35 @@ export default{
             console.log(err)
         })
     },
+// Methods nav bar
     prefTvFilm(){
+      if (store.displayPref === false){
         store.displayPref = !store.displayPref
-        console.log(store.prefList);
+        store.displayFilm = false
+        store.displaySerie = false
+      } else{
+        store.displayPref = !store.displayPref
+        store.displayFilm = true
+        store.displaySerie = true
+      }
+          
     },
     home(){
+        store.displayFilm = true
+        store.displaySerie = true
         store.displayPref = false
+        this.requestFilms()
     },
+    serieTV(){
+      store.displaySerie = true
+      store.displayFilm = false
+      store.displayPref = false
+    },
+    movie(){
+      store.displayFilm = true
+      store.displaySerie = false
+      store.displayPref = false
+    }
   },
   created(){
     this.requestFilms()
@@ -72,7 +94,7 @@ export default{
 </script>
 
 <template>
-  <AppHeaderSearch @homePage="home" @displayPref="prefTvFilm" @newSearch="requestNewFilm"/>
+  <AppHeaderSearch @showSerieTV="serieTV" @showFilm="movie" @homePage="home" @displayPref="prefTvFilm" @newSearch="requestNewFilm"/>
   <main>
     <AppWrapCard  />
   </main>

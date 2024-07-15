@@ -24,38 +24,10 @@ export default{
 
 <template>
 <!-- FILM -->
-    <div v-if="store.displayPref" class="container">
-        <div class="container">
-            <h2>ECCO I TUOI FILM E LE TUE SERIE TV PREFERITE</h2>
-        </div>
-        <div v-if="store.prefList.length > 0" class="container">
-            <div class="wrapper_card" v-for="(preferiti, i) in store.prefList" :key="i">
-                <div class="card_img">
-                    <img :src="'https://image.tmdb.org/t/p/w342' + preferiti.poster_path" :alt="preferiti.name">
-                </div>
-                <div class="card_info">
-                    <h2>{{preferiti.name}}</h2>
-                    <h3>{{preferiti.original_name}}</h3>
-                    <div class="flagimg">
-                        <img v-if="store.flags.includes(preferiti.original_language)" :src="'../src/assets/' + preferiti.original_language + '.png'" :alt="preferiti.original_language">
-                        <span v-else>{{preferiti.original_language}}</span>
-                    </div>
-                    <h4>Valutazione degli utenti:</h4>
-                    <div class="fb_stars" v-for="i in 5" @mouseover="preferiti.vote_average = i * 2">
-                        <span v-if="i <= Math.round(preferiti.vote_average / 2)"><i class="fa-solid fa-star"></i></span>
-                        <span v-else><i class="fa-regular fa-star"></i></span>
-                    </div>
-                    <div class="card_txt">
-                        <h4>Panoramica</h4>
-                        <p>{{preferiti.overview}}</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    <div class="container" v-else><h5>La ricerca non ha prodotto risultati</h5></div>
-    </div>
-    <div v-else>
+
+
+<!-- Div film e serie -->
+    <div v-show="store.displayFilm">
         <div class="container">
             <h2>FILMS</h2>
         </div>
@@ -93,7 +65,9 @@ export default{
             </div>
         </div>
         <div class="container" v-else><h5>La ricerca non ha prodotto risultati</h5></div>
+    </div>    
     <!-- SERIE TV -->
+    <div v-show="store.displaySerie"> 
         <div class="container">
             <h2>SERIE TV</h2>
         </div>
@@ -124,7 +98,7 @@ export default{
                 </div>
             </div>
         </div>
-    <div class="container" v-else><h5>La ricerca non ha prodotto risultati</h5></div>
+        <div class="container" v-else><h5>La ricerca non ha prodotto risultati</h5></div>
     </div>
     
 <!-- Arrey di lingue se inclusa stampa se no span -->

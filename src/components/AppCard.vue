@@ -15,8 +15,23 @@ export default{
         consoleMeto(){
             console.log("stampa lista in app card",store.filmList)
         },
-        removePref(film){
-            store.prefList = store.prefList.filter(obj => obj.title !== film.title)
+        removePref(film,serie){
+            if (film !== undefined){
+                store.prefList = store.prefList.filter(obj => obj.id !== film.id)
+            } else {
+                store.prefList = store.prefList.filter(obj => obj.id !== serie.id)
+            }
+            
+        },
+        addPref(film){
+            let i = 0
+            for (let i in store.prefList){
+                if (store.prefList[i].id === film.id){
+                    return false
+                } else {
+                    return true
+                }
+            }
         }
     },
     mounted(){
@@ -60,7 +75,7 @@ export default{
                         <p>{{film.overview}}</p>
                     </div>
                     <div>
-                        <button v-if="store.prefList.filter(obj => obj.title === film.title)" @click="store.prefList.push(film)" :addedFilm="film">AGGIUNGI</button>
+                        <button v-if="addPref(film)" @click="store.prefList.push(film)">AGGIUNGI</button>
                         <button @click="removePref(film)">RIMUOVI</button>
                     </div>
                     
@@ -97,7 +112,8 @@ export default{
                         <p>{{serie.overview}}</p>
                     </div>
                     <div>
-                        <button @click="store.prefList.push(serie)">AGGIUNGI</button>
+                        <button @click="store.prefList.push(serie,i)">AGGIUNGI</button>
+                        <button @click="removePref(serie)">RIMUOVI</button>
                     </div>
                 </div>
             </div>

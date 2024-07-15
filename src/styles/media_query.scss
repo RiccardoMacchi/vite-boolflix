@@ -1,0 +1,17 @@
+@media screen and (max-width:678px) {
+    * {
+        font-size: 0.8rem;
+    }
+
+    .wrapper_card {
+        flex-basis: 50%;
+    }
+
+    ul {
+        display: none;
+    }
+
+    *::-webkit-scrollbar {
+        width: 10px;
+    }
+}

@@ -60,11 +60,11 @@ export default{
 // Methods nav bar
     prefTvFilm(){
       if (store.displayPref === false){
-        store.displayPref = !store.displayPref
+        store.displayPref = true
         store.displayFilm = false
         store.displaySerie = false
       } else{
-        store.displayPref = !store.displayPref
+        store.displayPref = false
         store.displayFilm = true
         store.displaySerie = true
       }
@@ -102,6 +102,7 @@ export default{
 
 <style lang="scss">
 @use "./styles/general.scss" as*;
+@use "./styles/media_query.scss" as*;
 @use "./styles/partials/variables" as*;
 
 main{

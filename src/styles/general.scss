@@ -34,6 +34,7 @@ a {
     color: red;
 }
 
+h1,
 span:hover {
     cursor: pointer;
 }
@@ -51,7 +52,7 @@ ul {
     }
 
     li:last-child {
-        padding-left: 50px;
+        padding-right: 50px;
     }
 }
 

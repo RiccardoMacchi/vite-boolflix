@@ -19,7 +19,13 @@ export default{
   },
   methods:{
     requestFilms(){
-      axios.get(store.urlFilmList)
+      let fullApiM = "";
+      let fullApiS = "";
+      if(store.newFilmSearch === ""){
+        fullApiM = store.urlFilmList
+        fullApiS = store.urlSerieList
+        // Richiesta axios film e serie
+        axios.get(fullApiM)
         .then(function(response){
           store.filmList = response.data.results
           console.log("store in axios",store.filmList)
@@ -27,7 +33,7 @@ export default{
         .catch(err =>{
             console.log(err)
         })
-        axios.get(store.urlSerieList)
+      axios.get(fullApiS)
         .then(function(response){
           store.serieList = response.data.results
           console.log("store in axios",store.serieList)
@@ -35,9 +41,8 @@ export default{
         .catch(err =>{
             console.log(err)
         })
-    },
-    requestNewFilm(){
-        let fullApiM = store.baseUrl + store.movieUrl + store.apiKey + store.addName + store.newFilmSearch
+      } else {
+        fullApiM = store.baseUrl + store.movieUrl + store.apiKey + store.addName + store.newFilmSearch
         axios.get(fullApiM)
         .then(function(response){
             console.log(store.baseUrl + store.apiKey + store.addName + store.newFilmSearch)
@@ -56,6 +61,11 @@ export default{
         .catch(err =>{
             console.log(err)
         })
+      }
+    },
+    requestNewFilm(){
+        
+        
     },
 // Methods nav bar
     prefTvFilm(){
@@ -94,7 +104,7 @@ export default{
 </script>
 
 <template>
-  <AppHeaderSearch @showSerieTV="serieTV" @showFilm="movie" @homePage="home" @displayPref="prefTvFilm" @newSearch="requestNewFilm"/>
+  <AppHeaderSearch @showSerieTV="serieTV" @showFilm="movie" @homePage="home" @displayPref="prefTvFilm" @newSearch="requestFilms"/>
   <main>
     <AppWrapCard  />
   </main>

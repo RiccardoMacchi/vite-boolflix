@@ -23,16 +23,6 @@ export default{
             }
             
         },
-        addPref(film){
-            let i = 0
-            for (let i in store.prefList){
-                if (store.prefList[i].id === film.id){
-                    return false
-                } else {
-                    return true
-                }
-            }
-        }
     },
     mounted(){
         this.consoleMeto()
@@ -75,8 +65,8 @@ export default{
                         <p>{{film.overview}}</p>
                     </div>
                     <div>
-                        <button v-if="addPref(film)" @click="store.prefList.push(film)">AGGIUNGI</button>
-                        <button @click="removePref(film)">RIMUOVI</button>
+                        <h6 class="btn" v-show="!store.prefList.includes(film)" @click="store.prefList.push(film)">AGGIUNGI</h6>
+                        <h6 class="btn remove" v-show="store.prefList.includes(film)" @click="removePref(film)">RIMUOVI</h6>
                     </div>
                     
                     <!-- <span>{{ consoleMeto() }}</span> -->
@@ -112,8 +102,8 @@ export default{
                         <p>{{serie.overview}}</p>
                     </div>
                     <div>
-                        <button @click="store.prefList.push(serie,i)">AGGIUNGI</button>
-                        <button @click="removePref(serie)">RIMUOVI</button>
+                        <div class="btn" v-show="!store.prefList.includes(serie)" @click="store.prefList.push(serie)">AGGIUNGI</div>
+                        <div class="btn remove" v-show="store.prefList.includes(serie)" @click="removePref(serie)">RIMUOVI</div>
                     </div>
                 </div>
             </div>
@@ -173,6 +163,16 @@ export default{
     i{
         color: yellowgreen;
 
+    }
+    .btn {
+    width: 50%;
+    margin: 20px auto;
+    background-color: green;
+    border-radius: 10px;
+    }
+
+    .btn.remove {
+        background-color: red;
     }
 
 }

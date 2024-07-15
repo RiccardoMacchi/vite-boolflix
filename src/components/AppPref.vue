@@ -40,7 +40,7 @@ export default{
                         <p>{{preferiti.overview}}</p>
                     </div>
                     <div>
-                        <button @click="store.prefList.splice(i, 1)">RIMUOVI</button>
+                        <button @click="store.prefList.splice(i, 1)">RIMUOVI DAI PREFERITI</button>
                     </div>
                 </div>
             </div>

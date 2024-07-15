@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default {
     name: "AppHeaderSearch",
-    emits: ['newSearch','displayPref','homePage'],
+    emits: ['newSearch','displayPref','homePage','showFilm','showSerieTV'],
     data(){
         return{
             store,
